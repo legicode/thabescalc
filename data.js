@@ -612,6 +612,7 @@ function updateFlaw(flaw){
 function updateAptitude(box){
 	aptitude1.checked = this["aptitude"+box].checked;
 	aptitude2.checked = this["aptitude"+box].checked;
+	aptitude3.checked = this["aptitude"+box].checked;
 	updateClassGrowths("Donnel");
 	for (let i = 40; i < 54; i++){
 		if (this[characters[i].toLowerCase()+"growthsparent"].value == "Donnel"){
@@ -1099,7 +1100,7 @@ updateProcs();
 
 let asset1 = document.getElementById("asset1");
 let flaw1 = document.getElementById("flaw1");
-let aptitude = document.getElementById("aptitude1");
+let aptitude1 = document.getElementById("aptitude1");
 
 let asset2 = document.getElementById("asset2");
 let flaw2 = document.getElementById("flaw2");
