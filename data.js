@@ -79,22 +79,6 @@ const genders = new Map([
 	["Nah", 		"F"]
 ]);
 
-let asset1 = document.getElementById("asset1");
-let flaw1 = document.getElementById("flaw1");
-let aptitude = document.getElementById("aptitude1");
-
-let asset2 = document.getElementById("asset2");
-let flaw2 = document.getElementById("flaw2");
-let aptitude2 = document.getElementById("aptitude2");
-
-let asset3 = document.getElementById("asset3");
-let flaw3 = document.getElementById("flaw3");
-let limitbreaker1 = document.getElementById("limitbreaker1");
-
-let asset4 = document.getElementById("asset4");
-let flaw4 = document.getElementById("flaw4");
-let limitbreaker2 = document.getElementById("limitbreaker2");
-
 const assetgrowths = new Map([
 	["HP", 			[30, 0, 0, 0, 0, 0, 5, 5]],
 	["Strength",	[0, 15, 0, 5, 0, 0, 5, 0]],
@@ -591,11 +575,19 @@ function updateAssetFlaw(){
 	updateKidClassCaps("Morgan");
 	updateKidClassGrowths("Marc");
 	updateKidClassCaps("Marc");
-	for (let i = 36; i < 50; i++){
+	for (let i = 40; i < 54; i++){
 		if (this[characters[i].toLowerCase()+"growthsparent"].value == "Robin"){
 			updateKidClassGrowths(characters[i]);
 			updateKidClassCaps(characters[i]);
 		}
+	}
+	if (["Robin", "Morgan", "Marc"].includes(charfixed.value)){
+		updateClassFixed();
+	}
+	if ([...kidGrowths.keys()].includes(charfixed.value)){
+		if (this[charfixed.value.toLowerCase()+"growthsparent"].value == "Robin"){
+			updateClassFixed();
+ 		}
 	}
 }
 
@@ -625,6 +617,14 @@ function updateAptitude(box){
 				this[characters[i].toLowerCase()+stats[j]+"growth"].innerHTML = Math.floor((charGrowths.get(characters[i])[j] + charGrowths.get(defaultParents.get(characters[i]))[j] + charGrowths.get(this[characters[i].toLowerCase()+"growthsparent"].value)[j]) / 3) + aptitude1.checked*20 + classGrowths.get(this[characters[i].toLowerCase()+"ClassGrowths"].value)[j];
 			}
 		}
+	}
+	if (charfixed.value == "Donnel"){
+		updateClassFixed();
+	}
+	if ([...kidGrowths.keys()].includes(charfixed.value)){
+		if (this[charfixed.value.toLowerCase()+"growthsparent"].value == "Donnel"){
+			updateClassFixed();
+ 		}
 	}
 }
 
@@ -662,7 +662,7 @@ function updateParentGrowths(char){
 		this[char.toLowerCase()+"ClassGrowths"].options[i] = new Option(classList[i]);
 	}
 	if (classList.includes(currentClass)){
-		this[char.toLowerCase()+"ClassGrowths"].selectedIndex = classList.indexOf(currentClass);
+		this[char.toLowerCase()+"ClassGrowths"].value = currentClass;
 	}
 	updateKidClassGrowths(char);
 	if (morgangrowthsparent.value == char){
@@ -670,6 +670,13 @@ function updateParentGrowths(char){
 	}
 	if (marcgrowthsparent.value == char){
 		updateParentGrowths("Marc");
+	}
+	if (charfixed.value == char){
+		fixedClass = classfixed.value;
+		updateCharFixed();
+		if (classList.includes(fixedClass)){
+			classfixed.value = fixedClass;
+		}
 	}
 }
 
@@ -684,7 +691,7 @@ function updateParentCaps(char){
 		this[char.toLowerCase()+"ClassCaps"].options[i] = new Option(classList[i]);
 	}
 	if (classList.includes(currentClass)){
-		this[char.toLowerCase()+"ClassCaps"].selectedIndex = classList.indexOf(currentClass);
+		this[char.toLowerCase()+"ClassCaps"].value = currentClass;
 	}
 	else {
 		if (["Lucina", "Brady", "Kjelle", "Gerome", "Yarne", "Laurent", "Nah"].includes(char)){
@@ -755,7 +762,6 @@ function updateKidClassGrowths(char){
 			this[char.toLowerCase()+stats[i]+"growth"].innerHTML = kidGrowths.get(char)[i] + classGrowths.get(this[char.toLowerCase()+"ClassGrowths"].value)[i];
 		}
 	}
-	console.log(char+ " Growths "+kidGrowths.get(char));
 }
 
 function updateKidClassCaps(char){
@@ -787,7 +793,6 @@ function updateKidClassCaps(char){
 			this[char.toLowerCase()+stats[i]+"cap"].innerHTML = classCaps.get(this[char.toLowerCase()+"ClassCaps"].value)[i] + kidCaps.get(char)[i] + limitbreaker1.checked*10;
 		}
 	}
-	console.log(char+ " Caps "+kidCaps.get(char));
 }
 
 function baseGrowths1(){
@@ -894,6 +899,84 @@ function classCaps2(){
 	}
 	for (let i = 40; i < 54; i++) {
 		updateKidClassCaps(characters[i]);
+	}
+}
+
+function updateCharFixed(){
+	char = charfixed.value;
+	if (char.includes("'")) {
+		char = char.replaceAll("'", "")
+	}
+	while (classfixed.options.length > 0) {                
+		classfixed.remove(0);
+	}
+	let classList;
+	if (![...kidClasses.keys()].includes(char)){
+		classList = classPools.get(char);
+	}
+	else {
+		classList = kidClasses.get(char);
+	}
+	for (let i = 0; i < classList.length-1; i++){
+		classfixed.options[i] = new Option(classList[i]);
+	}
+	if (["Libra", "Anna", "Sayri", "Basilio", "Flavia", "Gangrel", "Emmeryn", "Yenfay", "Aversa", "Priam", "Mustafa", "Phila", "Pheros"].includes(char)){
+		classfixed.selectedIndex = 1;
+	}
+	updateClassFixed();
+}
+
+function updateClassFixed() {
+	char = charfixed.value;
+	if (char.includes("'")) {
+		char = char.replaceAll("'", "")
+	}
+	if (![...kidGrowths.keys()].includes(char)){
+		for (let i = 0; i < 19; i++){
+			for (let j = 0; j < 8; j++){
+				let stat;
+				if (charfixed.value == "Robin"){
+					stat = Math.floor(0.5 + (i+1) * (charGrowths.get(char)[j] + classGrowths.get(classfixed.value)[j] + assetgrowths.get(asset1.value)[j] + flawgrowths.get(flaw1.value)[j]) / 100) - Math.floor(0.5 + i * (charGrowths.get(char)[j] + classGrowths.get(classfixed.value)[j] + assetgrowths.get(asset1.value)[j] + flawgrowths.get(flaw1.value)[j]) / 100);
+				}
+				else if (charfixed.value == "Donnel"){
+					stat = Math.floor(0.5 + (i+1) * (charGrowths.get(char)[j] + classGrowths.get(classfixed.value)[j] + aptitude1.checked*20) / 100) - Math.floor(0.5 + i * (charGrowths.get(char)[j] + classGrowths.get(classfixed.value)[j] + aptitude1.checked*20) / 100);
+				}
+				else {
+					stat = Math.floor(0.5 + (i+1) * (charGrowths.get(char)[j] + classGrowths.get(classfixed.value)[j]) / 100) - Math.floor(0.5 + i * (charGrowths.get(char)[j] + classGrowths.get(classfixed.value)[j]) / 100);
+				}
+				if (stat == 0){
+					this["level"+(i+2).toString()+stats[j]+"growth"].innerHTML = "";
+				}
+				if (stat == 1){
+					this["level"+(i+2).toString()+stats[j]+"growth"].innerHTML = stat;
+				}
+				if (stat > 1){
+					this["level"+(i+2).toString()+stats[j]+"growth"].innerHTML = "<b>"+stat+"</b>";
+				}
+			}
+		}
+	}
+	else {
+		for (let i = 0; i < 19; i++){
+			for (let j = 0; j < 8; j++){
+				let stat;
+				if (this[char.toLowerCase()+"growthsparent"].value == "Donnel"){
+					stat = Math.floor(0.5 + (i+1) * (kidGrowths.get(char)[j] + classGrowths.get(classfixed.value)[j] + aptitude1.checked*20) / 100) - Math.floor(0.5 + i * (kidGrowths.get(char)[j] + classGrowths.get(classfixed.value)[j] + aptitude1.checked*20) / 100);
+				}
+				else {
+					stat = Math.floor(0.5 + (i+1) * (kidGrowths.get(char)[j] + classGrowths.get(classfixed.value)[j] + aptitude1.checked*20) / 100) - Math.floor(0.5 + i * (kidGrowths.get(char)[j] + classGrowths.get(classfixed.value)[j] + aptitude1.checked*20) / 100);
+				}
+				if (stat == 0){
+					this["level"+(i+2).toString()+stats[j]+"growth"].innerHTML = "";
+				}
+				if (stat == 1){
+					this["level"+(i+2).toString()+stats[j]+"growth"].innerHTML = stat;
+				}
+				if (stat > 1){
+					this["level"+(i+2).toString()+stats[j]+"growth"].innerHTML = "<b>"+stat+"</b>";
+				}
+			}
+		}
 	}
 }
 
@@ -1011,6 +1094,43 @@ astra.checked = false;
 aether.checked = false;
 lethality.checked = false;
 updateProcs();
+
+let asset1 = document.getElementById("asset1");
+let flaw1 = document.getElementById("flaw1");
+let aptitude = document.getElementById("aptitude1");
+
+let asset2 = document.getElementById("asset2");
+let flaw2 = document.getElementById("flaw2");
+let aptitude2 = document.getElementById("aptitude2");
+
+let asset3 = document.getElementById("asset3");
+let flaw3 = document.getElementById("flaw3");
+let limitbreaker1 = document.getElementById("limitbreaker1");
+
+let asset4 = document.getElementById("asset4");
+let flaw4 = document.getElementById("flaw4");
+let limitbreaker2 = document.getElementById("limitbreaker2");
+
+let asset5 = document.getElementById("asset5");
+let flaw5 = document.getElementById("flaw5");
+let aptitude3 = document.getElementById("aptitude3");
+
+var charfixed = document.getElementById("charfixed");
+for (let i = 0; i < 54; i++) {
+	if (characters[i] == "Lonqu"){
+		charfixed.options[i] = new Option("Lon'qu");
+	}
+	else if (characters[i] == "Sayri"){
+		charfixed.options[i] = new Option("Say'ri");
+	}
+	else if (characters[i] == "Yenfay"){
+		charfixed.options[i] = new Option("Yen'fay");
+	}
+	else {
+		charfixed.options[i] = new Option(characters[i]);
+	}
+}
+var classfixed = document.getElementById("classfixed");
 
 var gen1growths = document.getElementById("gen1growths");
 for (let i = 0; i < 40; i++){
@@ -1391,11 +1511,34 @@ laurentClassCaps.selectedIndex = 1;
 noireClassCaps.selectedIndex = 4;
 nahClassCaps.selectedIndex = 1;
 
-
 for (let i = 40; i < 54; i++) {
 	updateKidClassCaps(characters[i]);
 }
 
+var fixedgrowths = document.getElementById("fixedgrowths");
+for (let i = 0; i < 19; i++){
+	var row = fixedgrowths.insertRow(i+1);
+	let level = row.insertCell(0);
+	let hp = row.insertCell(1);
+	let str = row.insertCell(2);
+	let mag = row.insertCell(3);
+	let skl = row.insertCell(4);
+	let spd = row.insertCell(5);
+	let lck = row.insertCell(6);
+	let def = row.insertCell(7);
+	let res = row.insertCell(8);
+	level.innerHTML = (i+1).toString() + " → " + (i+2).toString();
+	hp.innerHTML = "<span id=\"level"+(i+2).toString()+"HPgrowth\"></span>";
+	str.innerHTML = "<span id=\"level"+(i+2).toString()+"STRgrowth\"></span>";
+	mag.innerHTML = "<span id=\"level"+(i+2).toString()+"MAGgrowth\"></span>";
+	skl.innerHTML = "<span id=\"level"+(i+2).toString()+"SKLgrowth\"></span>";
+	spd.innerHTML = "<span id=\"level"+(i+2).toString()+"SPDgrowth\"></span>";
+	lck.innerHTML = "<span id=\"level"+(i+2).toString()+"LCKgrowth\"></span>";
+	def.innerHTML = "<span id=\"level"+(i+2).toString()+"DEFgrowth\"></span>";
+	res.innerHTML = "<span id=\"level"+(i+2).toString()+"RESgrowth\"></span>";
+}
+
+updateCharFixed();
 updateAsset("Speed");
 updateFlaw("Luck");
 aptitude1.checked = true;
