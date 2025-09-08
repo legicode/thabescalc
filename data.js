@@ -596,6 +596,7 @@ function updateAsset(asset){
 	asset2.selectedIndex = statsfull.indexOf(asset);
 	asset3.selectedIndex = statsfull.indexOf(asset);
 	asset4.selectedIndex = statsfull.indexOf(asset);
+	asset5.selectedIndex = statsfull.indexOf(asset);
 	updateAssetFlaw();
 }
 
@@ -604,6 +605,7 @@ function updateFlaw(flaw){
 	flaw2.selectedIndex = statsfull.indexOf(flaw);
 	flaw3.selectedIndex = statsfull.indexOf(flaw);
 	flaw4.selectedIndex = statsfull.indexOf(flaw);
+	flaw5.selectedIndex = statsfull.indexOf(flaw);
 	updateAssetFlaw();
 }
 
