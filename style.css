@@ -1,0 +1,72 @@
+body{
+	font-family: sans-serif;
+	font-size: 16px;
+	background-color: #303030;
+	color: black;
+}
+table{
+	border-collapse: collapse;
+	background-color: #CC99CC;
+}
+td.intro{
+	text-align: left;
+	font-size: 18px;
+	padding: 25px;
+	border: 12px solid #AA952A;
+	border-left-width: 50px;
+	border-right-width: 50px;
+	line-height: 27px;
+}
+td.options, td.table1, td.table2{
+	width: 800px;
+	border: 12px solid #AA952A;
+	border-left-width: 50px;
+	border-right-width: 50px;
+}
+td.table1{
+	height: 1850px;
+}
+td.table2{
+	height: 662px;
+}
+td.options{
+	padding-top: 0px;
+	padding-bottom: 18px;
+	line-height: 14px;
+}
+th, td{
+	border: 2px solid;
+	text-align: center;
+	padding: 10px;
+	width: 35px;
+	border-color: #3F2F3F;
+}
+th{
+	border-top: 4px solid;
+	border-bottom: 4px solid;
+	border-color: #3F2F3F;
+}
+th.names{
+	width: 70px;
+}
+th.classes{
+	width: 120px;
+}
+th.parents{
+	width: 86px;
+}
+table#main{
+	margin-left: auto; 
+	margin-right: auto;
+	padding: 10px;
+}
+table.statstable{
+	margin-left: auto; 
+	margin-right: auto;
+}
+a:link{
+  color: #4C004C;
+}
+a:visited{
+  color: #4C004C;
+}
