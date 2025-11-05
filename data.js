@@ -1365,7 +1365,7 @@ for (let i = 0; i < 40; i++) {
 	updateClassCaps(characters[i]);
 }
 
-donnelClassCaps.selectedIndex = 2;
+donnelClassCaps.selectedIndex = 1;
 panneClassCaps.selectedIndex = 0;
 nowiClassCaps.selectedIndex = 0;
 oliviaClassCaps.selectedIndex = 0;
@@ -1547,4 +1547,5 @@ updateFlaw("Luck");
 aptitude1.checked = true;
 updateAptitude(1);
 limitbreaker1.checked = false;
+
 updateLimitBreaker(1);
