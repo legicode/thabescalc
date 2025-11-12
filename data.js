@@ -1,4 +1,4 @@
-const stats = ["HP", "STR", "MAG", "SKL", "SPD", "LCK", "DEF", "RES"];
+for (let i = 99; i >= 0; i--){const stats = ["HP", "STR", "MAG", "SKL", "SPD", "LCK", "DEF", "RES"];
 const statsfull = ["HP", "Strength", "Magic", "Skill", "Speed", "Luck", "Defense", "Resistance"];
 
 const characters = ["Robin", "Chrom", "Lissa", "Frederick", "Sully", "Virion", "Stahl", "Vaike", "Miriel", "Sumia", "Kellam", "Donnel", "Lonqu", "Ricken", "Maribelle", "Panne", "Gaius", "Cordelia", 
@@ -1066,7 +1066,7 @@ function updateProcs(){
 
 var displayedHit = document.getElementById("displayedHit");
 var trueHit = document.getElementById("trueHit");
-for (let i = 0; i <= 100; i++){
+for (let i = 100; i >= 0; i--){
 	displayedHit.options[i] = new Option(i);
 }
 displayedHit.selectedIndex = 75;
@@ -1083,7 +1083,7 @@ var aether = document.getElementById("aether");
 var lethality = document.getElementById("lethality");
 var procs = document.getElementById("procs");
 
-for (let i = 0; i < 100; i++){
+for (let i = 99; i >= 0; i--){
 	skillstat.options[i] = new Option(i);
 }
 
@@ -1549,3 +1549,4 @@ updateAptitude(1);
 limitbreaker1.checked = false;
 
 updateLimitBreaker(1);
+
