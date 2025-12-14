@@ -372,7 +372,7 @@ const classPools = new Map([
 	["Tharja", 		["Dark Mage", "Sorcerer", "Dark Knight", "Archer", "Sniper", "Bow Knight", "Knight", "General", "Great Knight", "Dread Fighter", "Bride", "Base stats"]],
 	["Anna", 		["Thief", "Trickster", "Assassin", "Archer", "Bow Knight", "Sniper", "Mage", "Sage", "Mage Knight", "Dread Fighter", "Bride", "Base stats"]],
 	["Olivia", 		["Dancer", "Prima", "Myrmidon", "Swordmaster", "Assassin", "Pegasus Knight", "Falcon Knight", "Dark Flier", "Dread Fighter", "Bride", "Base stats"]],
-	["Cherche", 	["Wyvern Rider", "Wyvern Lord", "Griffon Rider", "Cleric", "War Cleric", "Sage", "Troubador", "Valkyrie", "Dread Fighter", "Bride", "Base stats"]],
+	["Cherche", 	["Wyvern Rider", "Wyvern Lord", "Griffon Rider", "Cleric", "War Cleric", "Sage", "Fighter", "Warrior", "Hero", "Dread Fighter", "Bride", "Base stats"]],
 	["Henry", 		["Dark Mage", "Sorcerer", "Dark Knight", "Thief", "Trickster", "Assassin", "Barbarian", "Berserker", "Warrior", "Dread Fighter", "Groom", "Base stats"]],
 	["Sayri", 		["Myrmidon", "Swordmaster", "Assassin", "Pegasus Knight", "Falcon Knight", "Dark Flier", "Wyvern Rider", "Wyvern Lord", "Griffon Rider", "Dread Fighter", "Bride", "Base stats"]],
 	["Tiki", 		["Manakete", "Mamkute", "Wyvern Rider", "Wyvern Lord", "Griffon Rider", "Mage", "Sage", "Mage Knight", "Dread Fighter", "Bride", "Base stats"]],
