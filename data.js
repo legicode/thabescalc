@@ -1136,7 +1136,7 @@ function updateProcs(){
 	}
 	if (vengeance.checked){
 		if (remainingChance > 0){
-			vengeanceChance = (skillstat.value * 2 + rightfulking.checked*10) * remainingChance / 100;
+			vengeanceChance = (skillstat.value * 1.5 + rightfulking.checked*10) * remainingChance / 100;
 			if (vengeanceChance > remainingChance){
 				vengeanceChance = remainingChance;
 			}
@@ -1655,4 +1655,5 @@ updateFlaw("Luck");
 aptitude1.checked = true;
 updateAptitude(1);
 limitbreaker1.checked = false;
+
 updateLimitBreaker(1);
