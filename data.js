@@ -281,7 +281,7 @@ const classGrowths = new Map([
 	["Dread Fighter",	[40, 20, 10, 20, 20, 0, 10, 10]],
 	["Bride",			[40, 20, 10, 20, 20, 0, 10, 10]],
 	["Groom",			[40, 20, 10, 20, 20, 0, 10, 10]],
-	["Base stats",		[ 0,  0,  0,  0,  0, 0,  0,  0]],
+	["Base stats",		[ 0,  0,  0,  0,  0, 0,  0,  0]]
 ]);
 
 const classCaps = new Map([
@@ -342,7 +342,7 @@ const classCaps = new Map([
 	["Dread Fighter",	[80, 42, 38, 40, 41, 45, 39, 43]],
 	["Bride",			[40, 40, 39, 42, 42, 45, 41, 40]],
 	["Groom",			[40, 40, 39, 42, 42, 45, 41, 40]],
-	["Base stats",		[ 0,  0,  0,  0,  0,  0,  0,  0]],
+	["Base stats",		[ 0,  0,  0,  0,  0,  0,  0,  0]]
 ]);
 
 const classBases = new Map([
@@ -394,7 +394,7 @@ const classBases = new Map([
 	["Conqueror",		[24,10, 3, 9, 8, 0,12, 5, 8]],
 	["Dread Fighter",	[22, 8, 4, 7, 9, 0, 7,10, 6]],
 	["Bride/Groom",		[21, 7, 6,11,10, 0, 7, 6, 6]],
-	["Lodestar",		[21, 9, 1,10,10, 0, 8, 4, 6]],
+	["Lodestar",		[21, 9, 1,10,10, 0, 8, 4, 6]]
 ]);
 
 const classes =	["Tactician", "Grandmaster", "Lord (M)", "Great Lord (M)", "Lord (F)", "Great Lord (F)", "Cavalier", "Paladin", "Knight", "Great Knight", "General", "Barbarian", "Berserker", "Fighter", "Warrior", 
@@ -461,7 +461,7 @@ const classPools = new Map([
 	["Yarne", 		["Taguel", "Leporin", "Thief", "Assassin", "Trickster", "Wyvern Rider", "Wyvern Lord", "Griffon Rider"]],
 	["Laurent", 	["Mage", "Mage Knight", "Sage", "Dark Mage", "Dark Knight", "Sorcerer", "Troubador", "Valkyrie", "War Monk"]],
 	["Noire", 		["Archer", "Sniper", "Bow Knight", "Dark Mage", "Sorcerer", "Dark Knight", "Knight", "General", "Great Knight"]],
-	["Nah", 		["Manakete", "Mamkute", "Wyvern Rider", "Wyvern Lord", "Griffon Rider", "Mage", "Sage", "Mage Knight"]],
+	["Nah", 		["Manakete", "Mamkute", "Wyvern Rider", "Wyvern Lord", "Griffon Rider", "Mage", "Sage", "Mage Knight"]]
 ]);
 
 var kidGrowths = new Map([
@@ -478,7 +478,7 @@ var kidGrowths = new Map([
 	["Yarne", 		[0, 0, 0, 0, 0, 0, 0, 0]],
 	["Laurent", 	[0, 0, 0, 0, 0, 0, 0, 0]],
 	["Noire", 		[0, 0, 0, 0, 0, 0, 0, 0]],
-	["Nah", 		[0, 0, 0, 0, 0, 0, 0, 0]],
+	["Nah", 		[0, 0, 0, 0, 0, 0, 0, 0]]
 ]);
 
 var kidCaps = new Map([
@@ -495,7 +495,7 @@ var kidCaps = new Map([
 	["Yarne", 		[0, 0, 0, 0, 0, 0, 0, 0]],
 	["Laurent", 	[0, 0, 0, 0, 0, 0, 0, 0]],
 	["Noire", 		[0, 0, 0, 0, 0, 0, 0, 0]],
-	["Nah", 		[0, 0, 0, 0, 0, 0, 0, 0]],
+	["Nah", 		[0, 0, 0, 0, 0, 0, 0, 0]]
 ]);
 
 var kidClasses = new Map([
@@ -512,7 +512,7 @@ var kidClasses = new Map([
 	["Yarne", 		[]],
 	["Laurent", 	[]],
 	["Noire", 		[]],
-	["Nah", 		[]],
+	["Nah", 		[]]
 ]);
 
 function makeKidClassList(kid, parent){
@@ -1176,7 +1176,7 @@ for (let i = 0; i < 100; i++){
 	skillstat.options[i] = new Option(99-i);
 }
 
-skillstat.selectedIndex = 49;
+skillstat.selectedIndex = 59;
 rightfulking.checked = false;
 vengeance.checked = false;
 ignis.checked = false;
@@ -1655,5 +1655,4 @@ updateFlaw("Luck");
 aptitude1.checked = true;
 updateAptitude(1);
 limitbreaker1.checked = false;
-
 updateLimitBreaker(1);
