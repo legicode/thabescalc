@@ -811,7 +811,7 @@ function updateKidClassGrowths(char){
 			kidGrowths.get(char)[i] = Math.floor((charGrowths.get(char)[i] + charGrowths.get(defaultParents.get(char))[i] + charGrowths.get(parent)[i]) / 3);
 		}
 	}
-	if (parent == "donnel"){
+	if (parent == "Donnel"){
 		for (let i = 0; i < 8; i++){
 			this[char.toLowerCase()+stats[i]+"growth"].innerHTML = kidGrowths.get(char)[i] + classGrowths.get(this[char.toLowerCase()+"ClassGrowths"].value)[i] + aptitude1.checked*20;
 		}
@@ -1655,4 +1655,5 @@ updateFlaw("Luck");
 aptitude1.checked = true;
 updateAptitude(1);
 limitbreaker1.checked = false;
+
 updateLimitBreaker(1);
