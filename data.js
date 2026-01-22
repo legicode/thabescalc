@@ -1147,6 +1147,35 @@ function updateProcs(){
 	procs.innerHTML = procChances+"No skill activation: <b>" + Math.round(remainingChance * 100) / 100 + "%</b>";
 }
 
+function updateEXP(){
+	let experienceGain = 0;
+	let levelDifference = enemyLevel.value - internalLevel.value;
+	let bonus = 20 * bossEXP.checked;
+	if (bonusEXP.selectedIndex == 1 || bonusEXP.selectedIndex == 4){
+		bonus += 20;
+	}
+	else if (bonusEXP.selectedIndex == 2){
+		bonus -= 10;
+	}
+	else if (bonusEXP.selectedIndex == 3){
+		bonus += 80;
+	}
+	if (levelDifference >= 0){
+		experienceGain += Math.floor((31 + levelDifference) / 3) + (20 + levelDifference*3 + bonus)*killEXP.checked;
+	}
+	else if (levelDifference == -1){
+		experienceGain += 10 + (20 + bonus)*killEXP.checked;
+	}
+	else {
+		experienceGain += Math.max(Math.floor((33 + levelDifference) / 3), 1) + Math.max(26 + levelDifference*3 + bonus, 7)*killEXP.checked;
+	}
+	if (veteranEXP.checked){
+		experienceGain = Math.floor(experienceGain * 1.5);
+	}
+	experienceGain = Math.min(experienceGain, 100);
+	experience.innerHTML = experienceGain + " EXP";
+}
+
 function updateClassChange(){
 	for (let i = 0; i < 9; i++){
 		this[stats[i]+"change"].innerHTML = classBases.get(newclass.value)[i] - classBases.get(oldclass.value)[i]
@@ -1171,11 +1200,9 @@ var astra = document.getElementById("astra");
 var aether = document.getElementById("aether");
 var lethality = document.getElementById("lethality");
 var procs = document.getElementById("procs");
-
 for (let i = 0; i < 100; i++){
 	skillstat.options[i] = new Option(99-i);
 }
-
 skillstat.selectedIndex = 59;
 rightfulking.checked = false;
 vengeance.checked = false;
@@ -1186,6 +1213,27 @@ astra.checked = false;
 aether.checked = false;
 lethality.checked = false;
 updateProcs();
+
+var internalLevel = document.getElementById("internalLevel");
+var enemyLevel = document.getElementById("enemyLevel");
+var killEXP = document.getElementById("killEXP");
+var veteranEXP = document.getElementById("veteranEXP");
+var bossEXP = document.getElementById("bossEXP");
+var bonusEXP = document.getElementById("bonusEXP");
+var experience = document.getElementById("experience");
+for (let i = 0; i < 75; i++){
+	internalLevel.options[i] = new Option(75-i);
+}
+for (let i = 0; i < 40; i++){
+	enemyLevel.options[i] = new Option(40-i);
+}
+internalLevel.selectedIndex = 55;
+enemyLevel.selectedIndex = 20;
+killEXP.checked = true;
+veteranEXP.checked = false;
+bossEXP.checked = false;
+bonusEXP.selectedIndex = 0;
+updateEXP();
 
 var oldclass = document.getElementById("oldclass");
 var newclass = document.getElementById("newclass");
@@ -1484,7 +1532,6 @@ for (let i = 0; i < 40; i++) {
 	updateClassCaps(characters[i]);
 }
 
-
 var gen2caps = document.getElementById("gen2caps");
 for (let i = 40; i < 54; i++){
 	var row = gen2caps.insertRow(i-39);
@@ -1655,5 +1702,4 @@ updateFlaw("Luck");
 aptitude1.checked = true;
 updateAptitude(1);
 limitbreaker1.checked = false;
-
 updateLimitBreaker(1);
