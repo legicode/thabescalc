@@ -42,15 +42,16 @@
 				<select id="internalLevel" onChange="updateEXP()"></select> &nbsp&nbsp
 				Enemy level: 
 				<select id="enemyLevel" onChange="updateEXP()"></select><br/><br/>
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 				Enemy killed: <input type="checkbox" id="killEXP" onChange="updateEXP()"> &nbsp
 				Veteran: <input type="checkbox" id="veteranEXP" onChange="updateEXP()"> &nbsp 
 				Boss: <input type="checkbox" id="bossEXP" onChange="updateEXP()"> &nbsp 
 				Enemy type: <select id="bonusEXP" onChange="updateEXP()">
-					<option value="normal">Normal</option>
-					<option value="thief">Thief</option>
-					<option value="healer">Healer</option>
-					<option value="revenant">Revenant</option>
-					<option value="walhart">Walhart</option>
+					<option value="normal">Default enemy types</option>
+					<option value="thief">Thief/Assassin/Trickster</option>
+					<option value="healer">Cleric/Priest/Troubador</option>
+					<option value="revenant">Revenant/Entombed</option>
+					<option value="walhart">Walhart the Conqueror</option>
 				</select><br /><br />
 				Experience: <b><span id="experience"></span></b><br/>
 			</td></tr>
