@@ -1148,7 +1148,7 @@ function updateProcs(){
 }
 
 function updateEXP(){
-	let experienceGain = 0;
+	let expGain = 0;
 	let levelDifference = enemyLevel.value - internalLevel.value;
 	let bonus = 20 * bossEXP.checked;
 	if (bonusEXP.selectedIndex == 1 || bonusEXP.selectedIndex == 4){
@@ -1161,19 +1161,19 @@ function updateEXP(){
 		bonus += 80;
 	}
 	if (levelDifference >= 0){
-		experienceGain += Math.floor((31 + levelDifference) / 3) + (20 + levelDifference*3 + bonus)*killEXP.checked;
+		expGain += Math.floor((31 + levelDifference) / 3) + (20 + levelDifference*3 + bonus)*killEXP.checked;
 	}
 	else if (levelDifference == -1){
-		experienceGain += 10 + (20 + bonus)*killEXP.checked;
+		expGain += 10 + (20 + bonus)*killEXP.checked;
 	}
 	else {
-		experienceGain += Math.max(Math.floor((33 + levelDifference) / 3), 1) + Math.max(26 + levelDifference*3 + bonus, 7)*killEXP.checked;
+		expGain += Math.max(Math.floor((33 + levelDifference) / 3), 1) + Math.max(26 + levelDifference*3 + bonus, 7)*killEXP.checked;
 	}
 	if (veteranEXP.checked){
-		experienceGain = Math.floor(experienceGain * 1.5);
+		expGain = Math.floor(expGain * 1.5);
 	}
-	experienceGain = Math.min(experienceGain, 100);
-	experience.innerHTML = experienceGain + " EXP";
+	expGain = Math.min(expGain, 100);
+	exp.innerHTML = expGain + " EXP";
 }
 
 function updateClassChange(){
