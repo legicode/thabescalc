@@ -1939,4 +1939,3 @@ aptitude1.checked = true;
 updateAptitude(1);
 limitbreaker1.checked = false;
 updateLimitBreaker(1);
-updateKidBases();
