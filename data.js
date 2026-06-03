@@ -1489,7 +1489,13 @@ var classfixed = document.getElementById("classfixed");
 var gen1growths = document.getElementById("gen1growths");
 for (let i = 0; i < 40; i++){
 	var row = gen1growths.insertRow(i+1);
-	let name = row.insertCell(0).innerHTML = characters[i];
+	let name = characters[i];
+	if (["Lonqu", "Sayri", "Yenfay"].includes(name)){
+		row.insertCell(0).innerHTML = characters[i].slice(0, 3) + "'" + characters[i].slice(3);
+	}
+	else{
+		row.insertCell(0).innerHTML = characters[i];
+	}
 	let classSelect = row.insertCell(1).innerHTML = "<select id=\""+characters[i].toLowerCase()+"ClassGrowths\" onchange=\"updateClassGrowths('"+characters[i]+"')\"></select>";
 	let hp = row.insertCell(2).innerHTML = "<span id=\""+characters[i].toLowerCase()+"HPgrowth\"></span>";
 	let str = row.insertCell(3).innerHTML = "<span id=\""+characters[i].toLowerCase()+"STRgrowth\"></span>";
@@ -1644,7 +1650,13 @@ for (let i = 40; i < 54; i++){
 var gen1caps = document.getElementById("gen1caps");
 for (let i = 0; i < 40; i++){
 	var row = gen1caps.insertRow(i+1);
-	let name = row.insertCell(0).innerHTML = characters[i];
+	let name = characters[i];
+	if (["Lonqu", "Sayri", "Yenfay"].includes(name)){
+		row.insertCell(0).innerHTML = characters[i].slice(0, 3) + "'" + characters[i].slice(3);
+	}
+	else{
+		row.insertCell(0).innerHTML = characters[i];
+	}
 	let classSelect = row.insertCell(1).innerHTML = "<select id=\""+characters[i].toLowerCase()+"ClassCaps\" onchange=\"updateClassCaps('"+characters[i]+"')\"></select>";
 	let hp = row.insertCell(2).innerHTML = "<span id=\""+characters[i].toLowerCase()+"HPcap\"></span>";
 	let str = row.insertCell(3).innerHTML = "<span id=\""+characters[i].toLowerCase()+"STRcap\"></span>";
