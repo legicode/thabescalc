@@ -291,8 +291,8 @@ const classCaps = new Map([
 	["Lord",			[60, 25, 20, 26, 28, 30, 25, 25]],
 	["Lord (M)",		[60, 25, 20, 26, 28, 30, 25, 25]],
 	["Lord (F)",		[60, 25, 20, 26, 28, 30, 25, 25]],
-	["Great Lord (M)",	[60, 25, 20, 26, 28, 30, 25, 25]],
-	["Great Lord (F)",	[60, 25, 20, 26, 28, 30, 25, 25]],
+	["Great Lord (M)",	[80, 43, 30, 40, 41, 45, 42, 40]],
+	["Great Lord (F)",	[80, 40, 30, 42, 44, 45, 40, 40]],
 	["Saint Lord",		[80, 41, 42, 40, 41, 45, 42, 40]],
 	["Cavalier",		[60, 26, 20, 25, 25, 30, 26, 26]],
 	["Paladin",			[80, 42, 30, 40, 40, 45, 42, 42]],
@@ -1617,7 +1617,7 @@ bradygrowthsparent.remove(32);
 bradygrowthsparent.selectedIndex = 22;
 kjellegrowthsparent.remove(4);
 kjellegrowthsparent.remove(32);
-kjellegrowthsparent.selectedIndex = 6;
+kjellegrowthsparent.selectedIndex = 5;
 cynthiagrowthsparent.remove(9);
 cynthiagrowthsparent.remove(32);
 severagrowthsparent.remove(17);
@@ -1632,7 +1632,7 @@ marcgrowthsparent.remove(0);
 marcgrowthsparent.remove(35);
 yarnegrowthsparent.remove(15);
 yarnegrowthsparent.remove(32);
-yarnegrowthsparent.selectedIndex = 12;
+yarnegrowthsparent.selectedIndex = 11;
 laurentgrowthsparent.remove(8);
 laurentgrowthsparent.remove(32);
 laurentgrowthsparent.selectedIndex = 5;
@@ -1641,7 +1641,7 @@ noiregrowthsparent.remove(32);
 noiregrowthsparent.selectedIndex = 24;
 nahgrowthsparent.remove(19);
 nahgrowthsparent.remove(32);
-nahgrowthsparent.selectedIndex = 11;
+nahgrowthsparent.selectedIndex = 12;
 
 for (let i = 40; i < 54; i++){
 	updateParentGrowths(characters[i]);
@@ -1773,7 +1773,7 @@ bradycapsparent.remove(32);
 bradycapsparent.selectedIndex = 22;
 kjellecapsparent.remove(4);
 kjellecapsparent.remove(32);
-kjellecapsparent.selectedIndex = 6;
+kjellecapsparent.selectedIndex = 5;
 cynthiacapsparent.remove(9);
 cynthiacapsparent.remove(32);
 severacapsparent.remove(17);
@@ -1788,7 +1788,7 @@ marccapsparent.remove(0);
 marccapsparent.remove(35);
 yarnecapsparent.remove(15);
 yarnecapsparent.remove(32);
-yarnecapsparent.selectedIndex = 12;
+yarnecapsparent.selectedIndex = 11;
 laurentcapsparent.remove(8);
 laurentcapsparent.remove(32);
 laurentcapsparent.selectedIndex = 5;
@@ -1797,7 +1797,7 @@ noirecapsparent.remove(32);
 noirecapsparent.selectedIndex = 24;
 nahcapsparent.remove(19);
 nahcapsparent.remove(32);
-nahcapsparent.selectedIndex = 11;
+nahcapsparent.selectedIndex = 12;
 
 for (let i = 40; i < 54; i++){
 	updateParentCaps(characters[i]);
