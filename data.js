@@ -1197,10 +1197,10 @@ function updateEXP(){
 		expGain += 10 + (20 + bonus)*killEXP.checked;
 	}
 	else {
-		expGain += Math.max(Math.floor((33 + levelDifference) / 3), 1) + Math.max(26 + levelDifference*3 + bonus, 7)*killEXP.checked;
+		expGain += Math.max(Math.floor((33 + levelDifference) / 3), 1) + Math.max(26 + levelDifference*3 + bonus, 3)*killEXP.checked;
 	}
 	if (veteranEXP.checked){
-		expGain = Math.floor(expGain * 1.5);
+		expGain = Math.floor(expGain * 1.25);
 	}
 	expGain = Math.min(expGain, 100);
 	exp.innerHTML = expGain + " EXP";
@@ -1518,6 +1518,7 @@ for (let i = 0; i < 40; i++){
 	}
 }
 
+frederickClassGrowths.selectedIndex = 1;
 libraClassGrowths.selectedIndex = 1;
 annaClassGrowths.selectedIndex = 1;
 sayriClassGrowths.selectedIndex = 1;
